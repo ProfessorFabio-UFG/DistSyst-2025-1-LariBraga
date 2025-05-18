@@ -58,8 +58,7 @@ public class Client {
             System.out.println("response: " + response1);
             
             for (int i = 0; i < 5; i++) {
-                String response2 = stub.calcula();
-                System.out.println("Conta: " + response2);
+                System.out.println("Conta: " + stub.calcula());
             }
         } catch (Exception e) {
             System.err.println("Client exception: " + e.toString());
