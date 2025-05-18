@@ -41,6 +41,7 @@ import java.rmi.registry.Registry;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.Random;
 
 public class Server implements Hello {
 
@@ -48,6 +49,28 @@ public class Server implements Hello {
 
     public String sayHello() {
         return "Hello, world!";
+    }
+
+    public String calcula() {
+        Random gerador = new Random();
+        int op = gerador.nextInt(3);
+        int num1 = gerador.nextInt(21);
+        int num2 = gerador.nextInt(21);
+        String op_sinal;
+        int resp;
+
+        if (op == 0) {
+            op_sinal = " + ";
+            resp = num1 + num2;
+        } else if(op == 1) {
+            op_sinal = " - ";
+            resp = num1 - num2;
+        } else {
+            op_sinal = " * ";
+            resp = num1 * num2;
+        }
+
+        return num1 + op_sinal + num2 + " = " + resp;
     }
 
     public static void main(String args[]) {

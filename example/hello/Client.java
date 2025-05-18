@@ -54,8 +54,13 @@ public class Client {
             System.out.println("Registry has been located");
             Hello stub = (Hello) registry.lookup("Hello");
             System.out.println("Found server");
-            String response = stub.sayHello();
-            System.out.println("response: " + response);
+            String response1 = stub.sayHello();
+            System.out.println("response: " + response1);
+            
+            for (int i = 0; i < 5; i++) {
+                String response2 = stub.calcula();
+                System.out.println("Conta: " + response2);
+            }
         } catch (Exception e) {
             System.err.println("Client exception: " + e.toString());
             e.printStackTrace();
